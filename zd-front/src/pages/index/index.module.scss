@@ -1,0 +1,35 @@
+@import '../../css/variables.scss';
+@import '../../css/mixin.scss';
+
+.index {
+  @include bg-reset('../../img/index/bg.png');
+  background-size: 100% auto;
+
+  .box {
+    box-shadow: 0px px2rem(10px) px2rem(30px) 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo {
+    @include width-height(266px, 180px);
+  }
+
+  .line {
+    width: 100%;
+    height: px2rem(106px);
+  }
+
+  .btn {
+    background-image: url('../../img/index/btn.png');
+    background-size: 100% auto;
+  }
+
+  .bg_line {
+    @include width-height(130px, 10px);
+    bottom: px2rem(4px);
+    right: 0;
+  }
+
+  .tips {
+    bottom: px2rem(40px);
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../css/variables.scss';
+@import '../../css/mixin.scss';
+
+  .empty {
+    padding-top: px2rem(160px);
+    color: #4E545B;
+  
+    &-img {
+      width: px2rem(200px);
+      height: px2rem(200px);
+      margin-bottom: px2rem(50px);
+    }
+  }

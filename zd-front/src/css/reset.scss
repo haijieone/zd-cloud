@@ -1,0 +1,19 @@
+// reset
+@import 'variables';
+@import 'mixin';
+
+input {
+  font: normal 30px "PingFangSC-Regular";
+  font-family: "PingFangSC-Regular", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+}
+
+
+:focus {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:active,
+a:visited {
+  border: 0;
+}

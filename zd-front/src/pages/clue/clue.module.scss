@@ -1,0 +1,98 @@
+@import 'src/css/variables.scss';
+@import 'src/css/mixin.scss';
+
+.table{
+  margin: 0;
+  padding: 0;
+  font-size: px2rem(28px);
+  color: #4D5053;
+  display: flex;
+  list-style: none;
+  height: px2rem(112px);
+  box-sizing: border-box;
+  &_item{
+    flex: 1;
+    line-height: px2rem(112px);
+    text-align: center;
+    .hz-avatar-base {
+      border: none;
+    }
+    .avatar{
+      display: block;
+      margin: 0 auto;
+      margin-top: px2rem(15px);
+    }
+    .nick {
+      max-width: px2rem(110px);
+      // padding: 0 px2rem(15px);
+      line-height: px2rem(40px);
+      font-size: px2rem(24px);
+    }
+    .btn{
+      width: px2rem(126px);
+      height: px2rem(56px);
+      line-height: px2rem(56px);
+      text-align: center;
+      color: #fff;
+      background: #14B779;
+      border-radius: px2rem(28px);
+      font-size: px2rem(24px);
+      display: inline-block;
+    }
+    a.phone {
+      text-decoration: underline;
+    }
+  }
+  &_item:first-child{
+    line-height: initial;
+    flex: 0.5;
+    min-width: px2rem(140px);
+  }
+  &_item:nth-child(2){
+    min-width: px2rem(100px);
+  }
+  &.header{
+    z-index: 999;
+    background: #f7f7f8;
+    color: #272A2A;
+    line-height: px2rem(112px);
+    flex: 0.5;
+  }
+}
+
+.remote_initiation{
+    top:px2rem(728px);
+    width: px2rem(57px);
+    height: px2rem(100px);
+    overflow: hidden;
+    box-shadow:0px 0px px2rem(20px) 0px rgba(0,0,0,0.1);
+    border-radius:px2rem(100px) 0px 0px px2rem(100px);
+    line-height: px2rem(100px);
+    white-space:nowrap;
+    transition: 0s;
+    z-index: 1000;
+    &_text{
+      display: inline-block;
+      height: 100%;
+      &::before{
+        font-size: px2rem(42px);
+        content:'+';
+        margin-right: px2rem(10px);
+      }
+    }
+  }
+  .show_all_text{
+    width: px2rem(188px);
+    touch-action: none;
+    transition: 0s;
+  }
+  .empty {
+    padding-top: px2rem(160px);
+    color: #4E545B;
+  
+    &-img {
+      width: px2rem(200px);
+      height: px2rem(200px);
+      margin-bottom: px2rem(50px);
+    }
+  }

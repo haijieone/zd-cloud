@@ -1,0 +1,24 @@
+
+//小程序需要额外处理
+@font-face {
+  font-family: 'iconfonts';
+  /* project id 1153236 */
+  src: url('//at.alicdn.com/t/font_1153236_x5zr4npln0q.eot');
+  src: url('//at.alicdn.com/t/font_1153236_x5zr4npln0q.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1153236_x5zr4npln0q.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1153236_x5zr4npln0q.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1153236_x5zr4npln0q.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1153236_x5zr4npln0q.svg#iconfont') format('svg');
+}
+
+.iconfonts {
+  font-family: "iconfonts" !important;
+  font-size: inherit;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconxiaolaba:before {
+  content: "\e64c";
+}

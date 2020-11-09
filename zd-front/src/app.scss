@@ -1,0 +1,20 @@
+@import "./css/custom-theme.scss";
+@import "~taro-ui/dist/style/index.scss";
+@import './css/variables';
+@import './css/mixin';
+@import './css/reset.scss';
+@import './css/iconfont/iconfont.css';
+@import './css/base.scss';
+@import './css/button.scss';
+@include font-face('DINAlternate-Bold', 'css/font/dab/DINAlternate-Bold', 'bold');
+
+page {
+  font-family: "PingFangSC-Regular", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font-size: px2rme(30px);
+  color: $color_black;
+}
+
+button {
+  font-size: px2rme(30px);
+  @include ff-pfm
+}

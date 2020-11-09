@@ -1,0 +1,14 @@
+@import '../../css/variables.scss';
+@import '../../css/mixin.scss';
+
+.login {
+  @include bg-reset('../../img/index/bg.png');
+  background-size: 100% auto;
+
+  .welcome {}
+
+  .box {
+    box-shadow: 0px px2rem(10px) px2rem(30px) 0px rgba(0, 0, 0, 0.1);
+
+  }
+}
