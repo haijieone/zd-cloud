@@ -6,14 +6,6 @@ import ajax, { ErrorCode } from '../../utils/ajax'
 import { store } from '../../utils'
 
 
-export const send_sms = (data) => async (dispatch, getState) => {
-    
-    const res = await ajax.post('/patient/province_city', { ...data })
-    if (res.errno === ErrorCode) {
-        return res.data
-    }
-    Taro.showToast({ text: res.errmsg, icon: 'none' })
-}
 
 //授权
 export const wx_auth = () => async (dispatch) => {

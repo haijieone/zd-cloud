@@ -43,46 +43,24 @@ export default class NavBar extends Component {
         url: '/pages/my/index/index',
         ck_log: 'bdsystem_mine_clikc'
       },]
-    // if (permission && permission.indexOf('audit') > -1) {
-    //   nav_data.splice(1, 0, { 
-    //     key: 'review',
-    //     title: '审核', 
-    //     iconPrefixClass:'iconfont', 
-    //     iconType: 'shenhe',
-    //     url: '/volunteer/review',
-    //     ck_log: 'bdsystem_audit_clikc'
-    //   })
-    // }
-    // if (this.userinfo.position === 1 || this.userinfo.position === 4 || this.userinfo.position === 0) {
-    //   nav_data.map((item, index) => {
-    //     if (item.key === 'achievement') {
-    //       nav_data.splice(index, 1)
-    //     }
-    //   })
-    // }
+   
     this.state = {
       nav_data: nav_data,
     }
   }
 
   async componentDidMount() {
-    // 调取个人信息接口
-    // await this.props.get_profile()
-    // let state = {}
-    // let permission = utils.get_volunteer_userinfo().permission
-    // if(permission && permission.indexOf('audit') <= -1){
-    //   let nav_data = this.state.nav_data
-    //   nav_data.splice(2,1)
-    //   this.setState({
-    //     nav_data:nav_data
-    //   })
-    // }
-    // state.hidden = utils.get_url_params(this.props.history.search).footerbar === '1';
-    // this.setState(state)
+   
   }
-  go = (path)=> {
+  go = (e)=> {
+    const {current}=this.props
     const { nav_data } = this.state;
-    Taro.redirectTo({ url: nav_data[path].url || nav_data[0].url })
+    const is_current_index=nav_data.findIndex(item=>item.key===current)
+    if(e===is_current_index){
+      return
+    }else{
+      Taro.redirectTo({url:nav_data[e].url})
+    }
   }
   currentIndex = (current) => {
     const { nav_data } = this.state;
@@ -104,8 +82,8 @@ export default class NavBar extends Component {
           <AtTabBar
             fixed
             current={this.currentIndex(current)}
-            iconSize="20"
-            onClick={this.go}
+            iconSize='20'
+            onClick={this.go.bind(this)}
             tabList={nav_data}
             {...tab_bar_set}
           />

@@ -22,33 +22,44 @@ class Index extends Component {
 
 
   async componentDidMount() {
-    this.userLogin()
+    wx.getSetting({//检测用户是否授权
+      success: (res) => {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({}).then(data=>{
+            this.saveUser(data.userInfo)
+          })
+        }else{
+          Taro.showToast({ title: '请点击授权登录', icon: 'none' })
+        }
+      }
+    })
+    // this.userLogin()
   }
   async handleWXGetUserInfo(event) {
     if (event.detail.userInfo) {
       this.saveUser(event.detail.userInfo)
     } else {
-      return
+      return  Taro.showToast({ title: '授权失败 请再次点击', icon: 'none' })
     }
-
   }
 
-localSaveUser(res){
-  // eslint-disable-next-line import/no-named-as-default-member
-  utils.store.set('userinfo', { userInfo: res.result.userInfo })
-  Taro.redirectTo({ url: '/pages/my/index/index' })
-}
-  userLogin = () => {
-    wx.cloud.callFunction({
-      name: 'userLogin',
-    }).then(res => {
-      if (res.result.code === 0) {
-     this.localSaveUser(res)
-      } else {
-        Taro.showToast({ title: res.result.msg, icon: 'none' })
-      }
-    })
+  linkTo(userInfo) {
+      // eslint-disable-next-line import/no-named-as-default-member
+    utils.store.set('userinfo', { userInfo, })
+    Taro.redirectTo({ url: '/pages/my/index/index' })
+
   }
+  // userLogin = () => {
+  //   wx.cloud.callFunction({
+  //     name: 'userLogin',
+  //   }).then(res => {
+  //     if (res.result.code === 0) {
+  //       this.linkTo()
+  //     } else {
+  //       Taro.showToast({ title: res.result.msg, icon: 'none' })
+  //     }
+  //   })
+  // }
   saveUser = (userInfo) => {
     wx.cloud.callFunction({
       name: 'savaUser',
@@ -57,9 +68,13 @@ localSaveUser(res){
       }
     }).then(res => {
       if (res.result.code === 0) {
-        this.localSaveUser(res)
+        this.linkTo(userInfo)
+      
       } else {
         Taro.showToast({ title: res.result.msg, icon: 'none' })
+        setTimeout(()=>{
+          this.linkTo(userInfo)
+        },1000)
       }
     })
   }

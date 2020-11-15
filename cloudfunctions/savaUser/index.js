@@ -23,13 +23,12 @@ exports.main = async (event, context) => {
     const data={
       code:0,
       msg:'保存用户信息成功',
-      userInfo:userInfo.baseUserInfo
     }
     return data
   }else{
     const data={
-      code:2001,
-      msg:'该用户未授权,请点击授权登录'
+      code:1,
+      msg:'您已经登陆过系统,赶紧去体验功能吧--哈哈!!!'
     }
     return data
   }

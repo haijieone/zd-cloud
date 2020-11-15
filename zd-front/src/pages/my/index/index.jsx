@@ -17,7 +17,7 @@ class Index extends Component {
 
     this.state = {
       // eslint-disable-next-line react/no-unused-state
-      userinfo: {}
+      userinfo: {avatarUrl:'',nickName:''}
     }
   }
 
@@ -35,7 +35,7 @@ class Index extends Component {
   componentDidHide() { }
 
   render() {
-    const { userinfo } = this.state;
+    const {userinfo}=this.state;
     return (
       <View className={`${Css.my} pb30`}>
         <View className={`${Css['mine_top']}`}>
